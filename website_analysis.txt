@@ -1,0 +1,83 @@
+The website is in Arabic. I will list the text content and their corresponding English translations for clarity.
+
+**Header Section:**
+- Logo: M&N LAW FIRM (Image saved as logo.webp)
+- Navigation Links:
+  - الرئيسية (Home)
+  - من نحن (About Us)
+  - خدماتنا (Our Services)
+  - مقالات (Articles)
+  - اتصل بنا (Contact Us)
+  - إستشارة قانونية (Legal Consultation)
+- Phone Number: 00201015005888
+- Email: info@mn-lawfirm.org
+
+**Hero Section:**
+- Main Title: احصل على أفضل حل لمشكلاتك القانونية (Get the best solution for your legal problems)
+- Subtitle: نحن عادلون (We are just)
+- Background Image: Saved as hero_background.webp
+- Three key points with icons (Note: these icons might be font icons or SVGs, need to be replicated via CSS/SVG or suitable library):
+  - محامون خبراء (Expert Lawyers)
+  - ضمان الفوز بنسبة 100% (100% win guarantee)
+  - نتيجة سريعة وإيجابية (Fast and positive results)
+
+**About Us Section:**
+- Title: تعرف علينا (Get to know us)
+- Text: إم & إن للاستشارات القانونية (M&N Legal Consultancy)
+- Text: يعمل محامو الشركة في جميع فروع القانون، بدءًا من القانون الجنائي والقانون العقاري وصولاً إلى القانون التجاري والقانون الأسري وغيرها. يقدم المحامون في الشركة استشارات قانونية سواء كانت من المسائل البسيطة إلى القضايا القانونية المعقدة.
+  (The firm's lawyers work in all branches of law, from criminal and real estate law to commercial and family law, and others. The firm's lawyers provide legal advice, whether it is a simple matter or a complex legal case.)
+- Image: A picture of a lawyer at a desk (Need to scroll to this section to save the image).
+- Text: 10 سنوات من الخبرة (10 years of experience)
+- Text: خبرة واسعة في قضايا مختلفة (Extensive experience in various cases)
+- Text: رحلة ممتدة من 2014 (A journey extending from 2014)
+
+**Services Section (مجالات الممارسات القانونية):**
+- Title: خدماتنا (Our Services)
+- Sub-title: مجالات الممارسات القانونية (Legal Practice Areas)
+- List of services with icons (Note: These icons appear to be vector graphics or font icons, not standard <img> tags. `browser_save_image` was not able to isolate them. They will need to be replicated using CSS, SVGs, or a suitable icon library. Their visual style is a simple line icon within a colored rounded square.):
+  - القانون الجنائي (Criminal Law)
+  - قانون العمل (Labor Law)
+  - القانون المدني (Civil Law)
+  - قانون الأسرة (Family Law)
+  - القانون التجاري (Commercial Law)
+  - صياغة العقود (Contract Drafting)
+  - القانون الإداري (Administrative Law)
+  - تأسيس الشركات (Company Formation)
+- Button: تعرف على كافة الخدمات (Learn about all services)
+
+**Call to Action Section (Near 'Testimonials'):**
+- Text: إذا كان لديك أي مشاكل قانونية، لا تتردد في طلب الاستشارة (If you have any legal problems, do not hesitate to request a consultation)
+- Button: اتصل بنا (Contact Us)
+
+**Lawyers Section (تعرف على محامينا الخبراء):**
+- Title: محامون خبراء (Expert Lawyers)
+- Sub-title: تعرف على محامينا الخبراء (Meet our expert lawyers)
+- (This section likely contains images of lawyers. Need to scroll and save these.)
+
+**FAQ Section (أسئلة شائعة):**
+- Title: تعرف على أسئلة شائعة (Learn about common questions)
+- (Likely text-based accordion.)
+
+**Appointment Section (احجز استشارة):**
+- Title: كن على اتصال (Be in touch)
+- Sub-title: احجز استشارة (Book a consultation)
+- (May contain a form or contact details.)
+
+**Articles Section (آخر المقالات):**
+- Title: آخر المقالات (Latest Articles)
+- (This section likely contains thumbnail images for articles. Need to scroll and save these.)
+
+**Footer Section:**
+- Logo: (Likely same as header logo)
+- Address/Contact Info.
+- Social Media Icons (Need to save these or use a font library).
+- Copyright: جميع الحقوق محفوظة © 2024 إم & إن للاستشارات القانونية (All rights reserved © 2024 M&N Legal Consultancy)
+- Text: تطوير Piattor (Developed by Piattor)
+
+**General Observations:**
+- The website uses a clean and professional design.
+- The color palette consists mainly of dark blue, white, and gold accents, with other colors for service boxes.
+- The typography is clear and easy to read (Need to identify fonts used via browser dev tools later).
+- Animations: Hero section slider, hover effects on cards/buttons. These need to be replicated.
+
+I will continue scrolling to capture remaining assets and text.
