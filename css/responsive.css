@@ -1,61 +1,8 @@
-/* Responsive Styles for Law Firm Website */
+/* Responsive Styles */
 
-/* Large Screens (992px - 1200px) */
-@media (max-width: 1200px) {
-  .container {
-    max-width: 960px;
-    width: 100%;
-    padding: 0 15px;
-  }
-  
-  /* Header */
-  nav ul li {
-    margin-right: 20px;
-  }
-  
-  /* Hero Section */
-  .hero-text h1 {
-    font-size: 2.8em;
-  }
-  
-  /* Services Grid */
-  .service-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  /* Lawyers Grid */
-  .lawyers-grid {
-    gap: 20px;
-  }
-  
-  /* Footer */
-  .footer-content {
-    padding: 0 15px;
-  }
-}
-
-/* Medium Screens (768px - 992px) */
-@media (max-width: 992px) {
-  .container {
-    max-width: 720px;
-    width: 100%;
-    padding: 0 15px;
-  }
-  
-  /* Header */
-  .logo img {
-    height: 70px;
-  }
-  
-  .logo img:hover {
-    height: 75px;
-  }
-  
-  nav ul li {
-    margin-right: 15px;
-  }
-  
-  /* Hero Section */
+/* Medium screens (tablets) */
+@media screen and (max-width: 992px) {
+  /* Hero section adjustments */
   .hero {
     height: 500px;
   }
@@ -64,148 +11,101 @@
     min-height: 700px;
   }
   
-  .hero-text h1 {
-    font-size: 2.5rem;
+  .hero h1 {
+    font-size: 2.4rem;
   }
   
-  .hero-features {
-    bottom: 20px;
-  }
-  
-  .feature {
-    max-width: 32%;
-  }
-  
-  /* Services Grid */
-  .service-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  /* About Section */
+  /* About section adjustments */
   .about-details {
-    gap: 20px;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
   }
   
-  /* Lawyers Grid */
-  .lawyers-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  /* FAQ and Appointment */
+  /* FAQ and Appointment section */
   .faq-appointment {
     flex-direction: column;
   }
   
-  .faq-container, .appointment-form {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  /* Testimonials */
-  .testimonial-slider {
-    padding: 0 30px;
-  }
-  
-  /* Articles Grid */
-  .articles-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  /* Footer */
-  .footer-content {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .footer-logo {
-    flex: 0 0 100%;
-    margin-bottom: 30px;
-  }
-  
-  .footer-links, .footer-contact {
-    flex: 0 0 48%;
+  /* Why Choose Us section */
+  .features-grid {
+    gap: 20px;
   }
 }
 
-/* Small Screens (576px - 768px) */
-@media (max-width: 768px) {
-  .container {
-    max-width: 540px;
-    width: 100%;
-    padding: 0 15px;
-  }
-  
-  /* Header */
+/* Small screens (mobile phones) */
+@media screen and (max-width: 768px) {
+  /* Top bar */
   .top-bar {
-    padding: 10px 3%;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
   
+  .contact-info {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Navigation */
   nav {
-    padding: 15px 3%;
-    position: relative;
+    padding: 10px 5%;
   }
   
-  .mobile-menu-toggle {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  nav ul {
+  .nav-links {
     position: fixed;
     top: 0;
     right: -100%;
     width: 80%;
     height: 100vh;
-    background-color: #fff;
+    background-color: #001f3f;
     flex-direction: column;
     align-items: flex-start;
-    padding: 80px 20px 20px;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    justify-content: flex-start;
+    padding-top: 70px;
+    padding-right: 20px;
     transition: right 0.3s ease;
     z-index: 1000;
-    margin: 0;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
   }
   
-  nav ul.active {
+  .nav-links.active {
     right: 0;
   }
   
-  nav ul li {
-    margin: 10px 0;
+  .nav-links li {
+    margin: 15px 0;
     width: 100%;
-    border-bottom: 1px solid #eee;
   }
   
-  nav ul li a {
-    color: #333;
+  .nav-links li a {
     display: block;
-    padding: 10px 0;
+    padding: 8px 0;
+    width: 100%;
+    font-size: 1.1rem;
   }
   
-  nav ul li a.cta-button {
-    text-align: center;
-    margin-top: 15px;
+  .mobile-menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 2000;
   }
   
-  /* Hero Section */
+  .mobile-menu-toggle.active span {
+    color: #fff;
+  }
+  
+  /* Hero section */
   .hero {
-    height: auto;
-    min-height: 450px;
+    height: 450px;
     text-align: center;
-    padding-bottom: 30px;
   }
   
   .hero-wrapper {
-    min-height: auto;
+    min-height: 600px;
   }
   
   .hero-content {
@@ -216,311 +116,122 @@
   .hero-text {
     text-align: center;
     max-width: 100%;
-    padding: 30px 0;
   }
   
   .hero-text::before {
     display: none;
   }
   
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero .subtitle {
+    font-size: 1rem;
+  }
+  
   .hero-features {
-    position: static;
     flex-direction: column;
-    padding: 20px;
-    margin-top: 30px;
-    background-color: rgba(0, 51, 102, 0.9);
-    border-radius: 8px;
+    padding: 15px 0;
+    position: relative;
+    align-items: center;
   }
   
   .feature {
-    max-width: 100%;
-    margin-bottom: 20px;
+    max-width: 90%;
+    margin-bottom: 15px;
   }
   
-  /* About Section */
-  .about-details {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .about-us-image {
-    margin: 0 auto 20px;
-    width: 100%;
-    max-width: 350px;
-  }
-  
-  .about-details div {
-    text-align: center;
-  }
-  
-  /* Services Grid */
+  /* Services section */
   .service-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  
-  /* CTA Section */
-  .cta-section h2 {
-    font-size: 1.5em;
-  }
-  
-  .cta-section {
-    padding: 40px 20px;
-  }
-  
-  /* Lawyers Grid */
-  .lawyers-grid {
     grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
   }
   
-  /* Testimonials */
-  .testimonial-slider {
-    padding: 0 20px;
-  }
-  
-  .testimonial-card {
-    padding: 20px;
-  }
-  
-  /* FAQ Section */
-  .faq-container {
-    padding: 40px 20px;
-  }
-  
-  .faq-question {
-    padding: 15px;
-  }
-  
-  /* Articles Grid */
-  .articles-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
+  /* Articles section */
   .article-categories {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  /* Footer */
-  .footer-content {
-    flex-wrap: wrap;
-    padding: 0 15px;
-  }
-  
-  .footer-logo {
-    flex: 0 0 100%;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
-  .footer-links, .footer-contact {
-    width: 50%;
-    margin-bottom: 30px;
-  }
-  
-  /* Add overlay when mobile menu is open */
-  body.menu-open::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
-}
-
-/* Extra Small Screens (Below 576px) */
-@media (max-width: 576px) {
-  /* Header */
-  .top-bar {
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 2%;
-  }
-  
-  .contact-info {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .contact-info span {
-    font-size: 0.8rem;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  nav {
-    padding: 15px 2%;
-  }
-  
-  .logo img {
-    height: 50px;
-  }
-  
-  /* Hero Section */
-  .hero {
-    height: auto;
-    min-height: 350px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  
-  .hero-text h1 {
-    font-size: 1.6em;
-    line-height: 1.4;
-  }
-  
-  .hero-text .subtitle {
-    font-size: 0.9rem;
-  }
-  
-  .cta-button-main {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-  
-  /* Services Grid */
-  .service-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  
-  .service-item {
-    padding: 20px 15px;
-  }
-  
-  .service-item i {
-    font-size: 2.5em;
-  }
-  
-  /* About Section */
-  .about-us {
-    padding: 40px 15px;
-  }
-  
-  .about-us h2 {
-    font-size: 1.6em;
-  }
-  
-  .about-us h3 {
-    font-size: 1.3em;
-  }
-  
-  .about-us-image {
-    max-width: 100%;
-  }
-  
-  /* Features Grid */
-  .features-grid {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-  }
-  
-  .feature-item {
-    min-width: 100%;
-  }
-  
-  /* CTA Section */
-  .cta-section {
-    padding: 30px 15px;
-  }
-  
-  /* Testimonials */
-  .testimonials {
-    padding: 40px 15px;
-  }
-  
-  .testimonial-card {
-    padding: 15px;
-  }
-  
-  /* FAQ Section */
-  .faq-container {
-    padding: 30px 15px;
-  }
-  
-  .faq-question {
-    padding: 12px;
-    font-size: 0.9em;
-  }
-  
-  /* Articles Section */
-  .articles {
-    padding: 40px 15px;
-  }
-  
-  .article-item {
-    margin-bottom: 20px;
   }
   
   .article-category {
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    margin: 0 5px 10px;
+    width: 80%;
+  }
+
+  .article-grid {
+    grid-template-columns: 1fr;
   }
   
   /* Footer */
   .footer-content {
     flex-direction: column;
+  }
+  
+  .footer-logo, 
+  .footer-links, 
+  .footer-contact {
+    flex: 0 0 100%;
     text-align: center;
-    padding: 30px 15px;
   }
   
-  .footer-links, .footer-contact {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .footer-links h4:after,
+  .footer-links h4:after, 
   .footer-contact h4:after {
     right: 50%;
     transform: translateX(50%);
   }
   
-  .social-icons {
+  .footer-contact p {
     justify-content: center;
   }
   
-  .footer-bottom {
-    padding: 15px;
-    font-size: 0.8rem;
+  .social-icons {
+    justify-content: center;
   }
 }
 
-/* Fix for very small screens */
-@media (max-width: 375px) {
-  .hero-text h1 {
-    font-size: 1.4em;
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  /* Logo */
+  .logo img {
+    height: 60px;
   }
   
-  .hero-text .subtitle {
-    font-size: 0.8rem;
+  /* Hero section */
+  .hero h1 {
+    font-size: 1.6rem;
   }
   
   .cta-button-main {
-    padding: 8px 16px;
-    font-size: 0.8rem;
+    padding: 12px 20px;
+    font-size: 1rem;
   }
   
-  .service-item h4 {
-    font-size: 1em;
+  /* About Us section */
+  .about-us-image {
+    max-width: 100%;
   }
   
-  .about-us h2,
-  .services h2,
-  .lawyers h2,
-  .testimonials h2,
-  .faq-appointment h2,
-  .articles h2 {
+  /* CTA section */
+  .cta-section h2 {
     font-size: 1.4em;
   }
+  
+  /* Appointment form */
+  .appointment-form form button {
+    width: 100%;
+  }
+}
+
+/* Fix for menu overlay */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Animation for mobile menu */
+@keyframes slideIn {
+  from { right: -100%; }
+  to { right: 0; }
+}
+
+.nav-links.active {
+  animation: slideIn 0.3s forwards;
 }

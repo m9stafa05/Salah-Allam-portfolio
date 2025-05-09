@@ -1,0 +1,223 @@
+/* Additional mobile enhancements */
+
+/* Fixed header styles */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: slideDown 0.3s forwards;
+}
+
+.fixed-header .top-bar {
+  display: none;
+}
+
+.fixed-header nav {
+  background-color: rgba(0, 31, 63, 0.95);
+  padding: 10px 5%;
+}
+
+.fixed-header .logo img {
+  height: 60px;
+  transition: height 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Larger tap targets for mobile */
+.mobile-friendly-link {
+  padding: 10px 0;
+}
+
+/* Make all images responsive */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top i {
+  font-size: 18px;
+}
+
+/* Mobile menu overlay */
+.menu-open::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn 0.3s forwards;
+}
+
+/* Mobile-specific enhancements */
+@media screen and (max-width: 768px) {
+  /* Improve form field usability on mobile */
+  input, textarea, select {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Add a space after the mobile menu to account for fixed positioning */
+  body.menu-open {
+    padding-right: 0;
+  }
+  
+  /* Enhance the mobile menu toggle button */
+  .mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .mobile-menu-toggle.active {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Adjust CTA buttons for better touch targets */
+  .cta-button-main,
+  .cta-button-secondary,
+  .cta-button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Add spacing between sections on mobile */
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  /* Make FAQ questions more touch-friendly */
+  .faq-question {
+    padding: 15px 10px;
+    min-height: 50px;
+  }
+  
+  /* Ensure the appointment form is more user-friendly */
+  .appointment-form form input,
+  .appointment-form form textarea {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* Better spacing for testimonial dots */
+  .testimonial-dots .dot {
+    width: 15px;
+    height: 15px;
+    margin: 0 8px;
+  }
+}
+
+/* Very small screens adjustments */
+@media screen and (max-width: 480px) {
+  /* Further reduce font sizes for very small screens */
+  body {
+    font-size: 14px;
+  }
+  
+  h2 {
+    font-size: 1.6em !important;
+  }
+  
+  h3 {
+    font-size: 1.3em !important;
+  }
+  
+  /* Stack service items for better readability */
+  .service-item {
+    padding: 20px 15px;
+  }
+  
+  /* Make the about section more compact */
+  .about-us p {
+    margin-bottom: 20px;
+  }
+  
+  /* Make footer content more compact */
+  .footer-content {
+    padding: 0 10px;
+  }
+}
+
+/* Medium screens */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  /* Adjust service grid for better layout */
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Adjust hero text for better fit */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Adjust hero height for landscape */
+  .hero {
+    height: auto;
+    min-height: 350px;
+  }
+  
+  .hero-wrapper {
+    min-height: 450px;
+  }
+  
+  /* Make mobile menu take less vertical space */
+  .nav-links {
+    padding-top: 50px;
+  }
+  
+  .nav-links li {
+    margin: 8px 0;
+  }
+  
+  /* More compact layout for landscape */
+  section {
+    padding: 30px 5%;
+  }
+}
