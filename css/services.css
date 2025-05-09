@@ -70,7 +70,7 @@
 }
 
 .page-title .cta-button:hover {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
 }
 
 /* Services Main Content */
@@ -107,7 +107,7 @@
   transform: translateX(50%);
   width: 80px;
   height: 3px;
-  background-color: #e74c3c;
+  background-color: var(--primary-color);
 }
 
 .section-intro p {
@@ -144,9 +144,9 @@
 
 .category-tab.active,
 .category-tab:hover {
-  background-color: #e74c3c;
+  background-color: var(--primary-color);
   color: var(--primary-color);
-  border-color: #e74c3c;
+  border-color: var(--primary-color);
 }
 
 /* Services Grid */
@@ -183,7 +183,7 @@
 
 .service-icon i {
   font-size: 2rem;
-  color: #e74c3c;
+  color: var(--primary-color);
 }
 
 .service-card h3 {
@@ -202,7 +202,7 @@
 .service-link {
   display: inline-flex;
   align-items: center;
-  color: #e74c3c;
+  color: var(--primary-color);
   font-weight: 500;
   transition: color 0.3s;
 }
@@ -213,7 +213,7 @@
 }
 
 .service-link:hover {
-  color: #c0392b;
+  color: var(--primary-color);
 }
 
 .service-link:hover i {
