@@ -152,21 +152,23 @@ nav ul li a.active {
 }
 
 .cta-button {
+  display: flex;
   background-color: var(--primary-color);
   color: #fff !important;
   border-radius: 5px;
-  padding: 15px 30px !important;
+  padding: 10px !important;
   transition: background-color 0.3s;
   text-decoration: none;
   display: flex;
-
-  line-height: 1;
 }
 
 .cta-button:hover {
   background-color: var(--secondary-color);
 }
 
+.cta-button .fas{
+  font-size: 1.2rem;
+}
 .mobile-menu-toggle {
   display: none;
   background: none;
