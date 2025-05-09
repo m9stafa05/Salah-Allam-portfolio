@@ -1,4 +1,3 @@
-// Mobile Navigation Toggle
 const menuToggle = document.getElementById('mobile-menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 const body = document.body;
@@ -12,7 +11,6 @@ if (menuToggle && navMenu) {
         body.classList.toggle('menu-open');
     });
 
-    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (navMenu.classList.contains('active') &&
             !navMenu.contains(e.target) &&
@@ -23,7 +21,6 @@ if (menuToggle && navMenu) {
         }
     });
 
-    // Close menu when clicking on menu links
     const navLinks = navMenu.querySelectorAll('a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -33,7 +30,6 @@ if (menuToggle && navMenu) {
         });
     });
 
-    // Handle window resize - close mobile menu when switching to desktop view
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
@@ -43,13 +39,11 @@ if (menuToggle && navMenu) {
     });
 }
 
-// FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', () => {
         const answer = question.nextElementSibling;
         const isVisible = answer.style.maxHeight;
 
-        // Close all other FAQ items
         document.querySelectorAll('.faq-answer').forEach(item => {
             item.style.maxHeight = null;
             item.style.display = 'none';
@@ -59,7 +53,6 @@ document.querySelectorAll('.faq-question').forEach(question => {
             item.classList.remove('active');
         });
 
-        // Open the clicked item
         if (!isVisible) {
             answer.style.display = 'block';
             answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -68,78 +61,57 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
-// Language Switcher
-const languageSwitcherButton = document.getElementById('language-switcher-button');
+const initLanguageSwitcher = () => {
+    const languageSwitcherButton = document.getElementById('language-switcher-button');
+    if (!languageSwitcherButton) return;
 
-if (languageSwitcherButton) {
+    const languages = {
+        'English': { text: 'العربية', lang: 'ar', dir: 'rtl' },
+        'العربية': { text: 'English', lang: 'en', dir: 'ltr' }
+    };
+
     languageSwitcherButton.addEventListener('click', () => {
-        let language = languageSwitcherButton.textContent;
-        if (language === 'English') {
-            languageSwitcherButton.textContent = 'العربية';
-            document.body.classList.remove('rtl');
-            document.documentElement.lang = 'en';
-            document.documentElement.dir = 'ltr';
-        } else if (language === 'العربية') {
-            languageSwitcherButton.textContent = 'Русский';
-            document.body.classList.remove('rtl');
-            document.documentElement.lang = 'ru';
-            document.documentElement.dir = 'ltr';
-        } else {
-            languageSwitcherButton.textContent = 'English';
-            document.body.classList.add('rtl');
-            document.documentElement.lang = 'ar';
-            document.documentElement.dir = 'rtl';
-        }
-    });
-}
+        const currentText = languageSwitcherButton.textContent;
+        const nextLang = languages[currentText];
+        
+        if (!nextLang) return;
 
-// Testimonial Slider
-document.addEventListener('DOMContentLoaded', function () {
+        languageSwitcherButton.textContent = nextLang.text;
+        document.documentElement.lang = nextLang.lang;
+        document.documentElement.dir = nextLang.dir;
+        document.body.classList.toggle('rtl', nextLang.dir === 'rtl');
+    });
+};
+
+document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+
+const initTestimonialSlider = () => {
     const dots = document.querySelectorAll('.testimonial-dots .dot');
     const slides = document.querySelectorAll('.testimonial-slide');
 
     if (dots.length && slides.length) {
-        dots.forEach(dot => {
-            dot.addEventListener('click', function () {
-                const slideIndex = this.getAttribute('data-slide');
+        const handleDotClick = (dot) => {
+            const slideIndex = dot.getAttribute('data-slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[slideIndex].classList.add('active');
+            dot.classList.add('active');
+        };
 
-                // Hide all slides
-                slides.forEach(slide => {
-                    slide.classList.remove('active');
-                });
+        dots.forEach(dot => dot.addEventListener('click', () => handleDotClick(dot)));
 
-                // Remove active class from all dots
-                dots.forEach(dot => {
-                    dot.classList.remove('active');
-                });
-
-                // Show the selected slide and activate the dot
-                slides[slideIndex].classList.add('active');
-                this.classList.add('active');
-            });
-        });
-
-        // Auto-rotate testimonials every 5 seconds
         let currentSlide = 0;
         setInterval(() => {
             currentSlide = (currentSlide + 1) % slides.length;
-
-            // Hide all slides
-            slides.forEach(slide => {
-                slide.classList.remove('active');
-            });
-
-            // Remove active class from all dots
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-
-            // Show the next slide and activate the dot
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
         }, 5000);
     }
-});
+};
+
+document.addEventListener('DOMContentLoaded', initTestimonialSlider);
 
 // Form Validation
 const appointmentForm = document.getElementById('appointment-form');
@@ -187,48 +159,25 @@ window.addEventListener('scroll', animateOnScroll);
 document.addEventListener('DOMContentLoaded', animateOnScroll);
 
 // Article Category Filtering
-document.addEventListener('DOMContentLoaded', function () {
+const initArticleFiltering = () => {
     const categoryLinks = document.querySelectorAll('.article-category');
     const articleItems = document.querySelectorAll('.article-item');
+    const clearButton = document.querySelector('.clear-filters');
 
     if (categoryLinks.length && articleItems.length) {
-        categoryLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                // Remove active class from all links
-                categoryLinks.forEach(item => {
-                    item.classList.remove('active');
-                });
-
-                // Add active class to clicked link
-                this.classList.add('active');
-
-                const selectedCategory = this.textContent;
-
-                // Show/hide articles based on category
-                articleItems.forEach(article => {
-                    if (selectedCategory === 'الكل') {
-                        article.style.display = 'block';
-                    } else {
-                        const articleCategory = article.getAttribute('data-category');
-                        if (articleCategory === selectedCategory) {
-                            article.style.display = 'block';
-                        } else {
-                            article.style.display = 'none';
-                        }
-                    }
-                });
+        const handleCategoryClick = (e) => {
+            e.preventDefault();
+            const category = e.currentTarget.getAttribute('data-category');
+            
+            // Update article visibility
+            articleItems.forEach(item => {
+                item.style.display = category === 'all' || item.classList.contains(category) ? 'block' : 'none';
             });
-        });
-    }
-});
-document.addEventListener('DOMContentLoaded', function () {
-    // Article Category Filtering
-    const categoryLinks = document.querySelectorAll('.article-category');
-    const articleItems = document.querySelectorAll('.article-item');
 
-    if (categoryLinks.length && articleItems.length) {
+            // Update active state
+            categoryLinks.forEach(link => link.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+        };
         categoryLinks.forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -286,4 +235,4 @@ document.addEventListener('DOMContentLoaded', function () {
         // Start rotation every 5 seconds
         setInterval(rotateAboutImages, 5000);
     }
-});
+};
