@@ -6,7 +6,7 @@
 }
 :root {
   --primary-color: #009eb3;
-  --secondary-color: #d4a017;
+  --secondary-color: #e74c3c;
 }
 body {
   font-family: "Tajawal", sans-serif;
@@ -124,6 +124,11 @@ nav {
 
 .logo img {
   height: 80px;
+  transition: height 0.3s;
+}
+
+.logo img:hover {
+  height: 100px;
 }
 
 nav ul {
@@ -149,13 +154,17 @@ nav ul li a.active {
 .cta-button {
   background-color: var(--primary-color);
   color: #fff !important;
-  padding: 10px 20px;
   border-radius: 5px;
+  padding: 15px 30px !important;
   transition: background-color 0.3s;
+  text-decoration: none;
+  display: flex;
+  
+  line-height: 1;
 }
 
 .cta-button:hover {
-  background-color: #b8860b;
+  background-color: var(--secondary-color);
 }
 
 .mobile-menu-toggle {
@@ -324,7 +333,59 @@ nav ul li a.active {
 .cta-button-secondary:hover {
   background-color: #002244;
 }
+/* About Image Slider Styles */
+.about-image-slider {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+.about-image-slider .about-us-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.about-image-slider .about-us-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.8s ease-out forwards;
+}
 /* Services Section */
 .services {
   padding: 60px 5%;

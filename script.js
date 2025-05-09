@@ -11,18 +11,18 @@ if (menuToggle && navMenu) {
         menuToggle.classList.toggle('active');
         body.classList.toggle('menu-open');
     });
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') && 
-            !navMenu.contains(e.target) && 
+        if (navMenu.classList.contains('active') &&
+            !navMenu.contains(e.target) &&
             e.target !== menuToggle) {
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
             body.classList.remove('menu-open');
         }
     });
-    
+
     // Close menu when clicking on menu links
     const navLinks = navMenu.querySelectorAll('a');
     navLinks.forEach(link => {
@@ -32,7 +32,7 @@ if (menuToggle && navMenu) {
             body.classList.remove('menu-open');
         });
     });
-    
+
     // Handle window resize - close mobile menu when switching to desktop view
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
@@ -187,25 +187,25 @@ window.addEventListener('scroll', animateOnScroll);
 document.addEventListener('DOMContentLoaded', animateOnScroll);
 
 // Article Category Filtering
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const categoryLinks = document.querySelectorAll('.article-category');
     const articleItems = document.querySelectorAll('.article-item');
-    
+
     if (categoryLinks.length && articleItems.length) {
         categoryLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 // Remove active class from all links
                 categoryLinks.forEach(item => {
                     item.classList.remove('active');
                 });
-                
+
                 // Add active class to clicked link
                 this.classList.add('active');
-                
+
                 const selectedCategory = this.textContent;
-                
+
                 // Show/hide articles based on category
                 articleItems.forEach(article => {
                     if (selectedCategory === 'الكل') {
@@ -221,5 +221,69 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         });
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    // Article Category Filtering
+    const categoryLinks = document.querySelectorAll('.article-category');
+    const articleItems = document.querySelectorAll('.article-item');
+
+    if (categoryLinks.length && articleItems.length) {
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Remove active class from all links
+                categoryLinks.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add active class to clicked link
+                this.classList.add('active');
+
+                const selectedCategory = this.textContent;
+
+                // Show/hide articles based on category
+                articleItems.forEach(article => {
+                    if (selectedCategory === 'الكل') {
+                        article.style.display = 'block';
+                    } else {
+                        const articleCategory = article.getAttribute('data-category');
+                        if (articleCategory === selectedCategory) {
+                            article.style.display = 'block';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    }
+
+    // About Us Image Slider
+    const aboutImages = document.querySelectorAll('.about-image-slider .about-us-image');
+
+    if (aboutImages.length > 1) {
+        let currentImageIndex = 0;
+
+        // Function to rotate to the next image
+        function rotateAboutImages() {
+            // Remove active class from all images
+            aboutImages.forEach(image => {
+                image.classList.remove('active');
+            });
+
+            // Move to next image
+            currentImageIndex = (currentImageIndex + 1) % aboutImages.length;
+
+            // Add active class to new current image
+            aboutImages[currentImageIndex].classList.add('active');
+        }
+
+        // Set initial active state
+        aboutImages[0].classList.add('active');
+
+        // Start rotation every 5 seconds
+        setInterval(rotateAboutImages, 5000);
     }
 });
