@@ -6,15 +6,15 @@
   .hero {
     height: 500px;
   }
-  
+
   .hero-wrapper {
     min-height: 700px;
   }
-  
+
   .hero h1 {
     font-size: 2.4rem;
   }
-  
+
   /* About section adjustments */
   .about-details {
     flex-direction: column;
@@ -22,12 +22,12 @@
     align-items: center;
     text-align: center;
   }
-  
+
   /* FAQ and Appointment section */
   .faq-appointment {
     flex-direction: column;
   }
-  
+
   /* Why Choose Us section */
   .features-grid {
     gap: 20px;
@@ -36,24 +36,46 @@
 
 /* Small screens (mobile phones) */
 @media screen and (max-width: 768px) {
+  /* Hero section */
+  .hero {
+    height: 400px;
+  }
+
+  .hero-title-container {
+    font-size: 1rem;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-title-container span:not(:first-child) {
+    display: none;
+  }
+
+  .hero-title-container span:first-child {
+    display: block;
+  }
+
   /* Top bar */
   .top-bar {
     flex-direction: column;
     gap: 10px;
     text-align: center;
   }
-  
+
   .contact-info {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 10px;
   }
-  
+
   /* Navigation */
   nav {
     padding: 10px 5%;
   }
-  
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -71,88 +93,130 @@
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
   }
-  
+
   .nav-links.active {
     right: 0;
   }
-  
+
   .nav-links li {
     margin: 15px 0;
     width: 100%;
   }
-  
+
   .nav-links li a {
     display: block;
     padding: 8px 0;
     width: 100%;
     font-size: 1.1rem;
   }
-  
+
   .mobile-menu-toggle {
     display: block;
     position: relative;
     z-index: 2000;
   }
-  
+
   .mobile-menu-toggle.active span {
     color: #fff;
   }
-  
+
   /* Hero section */
   .hero {
     height: 450px;
     text-align: center;
   }
-  
+
   .hero-wrapper {
     min-height: 600px;
   }
-  
+
   .hero-content {
-    justify-content: center;
-    padding: 0 20px;
+    justify-content: space-between;
+    /* padding: 0 20px; */
   }
-  
+
   .hero-text {
     text-align: center;
     max-width: 100%;
+    margin: 0 auto;
   }
-  
+  .scroll-wrapper span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2;
+  }
   .hero-text::before {
     display: none;
   }
-  
+
   .hero h1 {
     font-size: 2rem;
+    text-align: center;
   }
-  
+
   .hero .subtitle {
     font-size: 1rem;
   }
-  
+
   .hero-features {
-    flex-direction: column;
+    flex-direction: row;
     padding: 15px 0;
     position: relative;
-    align-items: center;
+    justify-content: center;
+    gap: 20px;
   }
-  
+
   .feature {
-    max-width: 90%;
-    margin-bottom: 15px;
+    max-width: 100px;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
   }
-  
+
+  .feature i {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .feature h3 {
+    font-size: 0.8rem;
+    margin: 0;
+    color: #fff;
+  }
+
   /* Services section */
   .service-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
-  
+
+  .service-item {
+    width: 100%;
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  .service-item i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .service-item h4 {
+    font-size: 0.9rem;
+    margin: 5px 0;
+  }
+
   /* Articles section */
   .article-categories {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .article-category {
     width: 80%;
   }
@@ -160,29 +224,29 @@
   .article-grid {
     grid-template-columns: 1fr;
   }
-  
+
   /* Footer */
   .footer-content {
     flex-direction: column;
   }
-  
-  .footer-logo, 
-  .footer-links, 
+
+  .footer-logo,
+  .footer-links,
   .footer-contact {
     flex: 0 0 100%;
     text-align: center;
   }
-  
-  .footer-links h4:after, 
+
+  .footer-links h4:after,
   .footer-contact h4:after {
     right: 50%;
     transform: translateX(50%);
   }
-  
+
   .footer-contact p {
     justify-content: center;
   }
-  
+
   .social-icons {
     justify-content: center;
   }
@@ -194,27 +258,27 @@
   .logo img {
     height: 60px;
   }
-  
+
   /* Hero section */
   .hero h1 {
     font-size: 1.6rem;
   }
-  
+
   .cta-button-main {
     padding: 12px 20px;
     font-size: 1rem;
   }
-  
+
   /* About Us section */
   .about-us-image {
     max-width: 100%;
   }
-  
+
   /* CTA section */
   .cta-section h2 {
     font-size: 1.4em;
   }
-  
+
   /* Appointment form */
   .appointment-form form button {
     width: 100%;
@@ -228,8 +292,12 @@ body.menu-open {
 
 /* Animation for mobile menu */
 @keyframes slideIn {
-  from { right: -100%; }
-  to { right: 0; }
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
+  }
 }
 
 .nav-links.active {
