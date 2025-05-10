@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --primary-color: #009eb3;
+  --primary-color: #039d9d;
   --secondary-color: #003366;
 }
 body {
@@ -273,10 +273,9 @@ nav ul li a.active {
 /* Hero Title Scroll Animation */
 
 .hero-title-container {
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   position: relative;
-  padding: 50px 0;
   margin: 0 auto;
   direction: rtl; /* Right-to-left for Arabic */
   font-family: "Tajawal", sans-serif;
@@ -287,7 +286,7 @@ nav ul li a.active {
 .scroll-wrapper {
   display: flex;
   flex-direction: column;
-  animation: scrollText 10s linear infinite;
+  /* animation: scrollText 10s linear infinite; */
 }
 
 @keyframes scrollText {
@@ -300,16 +299,15 @@ nav ul li a.active {
 }
 
 .scroll-wrapper span {
-  height: 30px; /* same as container height */
+  height: 50px; /* same as container height */
   line-height: 1.3;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   text-align: right;
   display: flex;
   align-items: right;
   justify-content: right;
 }
-
 
 .cta-button-main {
   display: inline-block;
@@ -609,7 +607,9 @@ nav ul li a.active {
 .faq-appointment .container {
   display: flex;
   gap: 40px;
+  align-items: center;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .faq-container {
