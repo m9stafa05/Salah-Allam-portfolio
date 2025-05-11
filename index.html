@@ -8,6 +8,7 @@
     <link rel="stylesheet" href='css/style.css'>
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/stat.css">
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
@@ -79,7 +80,7 @@
 
     <!-- About Us Section -->
     <section class="about-us" id="about">
-        <h2>تعرف علينا</h2>
+        <h2 class="main-title">تعرف علينا</h2>
 
         <p>يعمل محامو الشركة في جميع فروع القانون، بدءًا من القانون الجنائي والقانون العقاري وصولاً إلى القانون التجاري
             والقانون الأسري وغيرها. يقدم المحامون في الشركة استشارات قانونية سواء كانت من المسائل البسيطة إلى القضايا
@@ -88,22 +89,19 @@
             استفساراتهم واستشاراتهم القانونية بسهولة وسرعة</p>
         <div class="about-details">
             <div class="about-image-slider">
-                <img src="images/01.jpg" alt="المحاماة والاستشارات القانونية" class="about-us-image active">
-                <img src="images/03.jpg" alt="المحاماة والاستشارات القانونية" class="about-us-image">
-                <img src="images/04.jpg" alt="المحاماة والاستشارات القانونية" class="about-us-image">
+                <img src="images/03.jpg" class="about-us-image">
             </div>
             <div>
                 <p><strong>10 سنوات من الخبرة</strong></p>
                 <p>خبرة واسعة في قضايا مختلفة</p>
                 <p>رحلة ممتدة من 2014</p>
-                <a href="#" class="cta-button-secondary">اعرف المزيد</a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services" id="services">
-        <h2>خدماتنا</h2>
+        <h2 class="main-title">خدماتنا</h2>
         <h3>مجالات الممارسات القانونية</h3>
         <p>نخبة من المحامين والمستشارين يتعاونون لتقديم نتائج حاسمة.</p>
         <div class="service-grid">
@@ -172,11 +170,47 @@
                 <h4>المحاسبة الضريبية</h4>
             </div>
         </div>
-        <a href="services.html" class="cta-button-secondary">تعرف على كافة الخدمات</a>
     </section>
+    <!-- Add this section right before the Law Firm Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="main-title">إحصائياتنا</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="7">0</div>
+                    <div class="stat-title">أقسام قانونية</div>
+                    <div class="stat-desc">يعمل بها أكثر من 30 موظف</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="30000">0</div>
+                    <div class="stat-title">معاملة قانونية</div>
+                    <div class="stat-desc">خلال مسيرة العمل منذ عام 2014</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="82.7">0</div>
+                    <div class="stat-title">نسبة الإنجاز</div>
+                    <div class="stat-desc">لصالح عملائنا</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="16589">0</div>
+                    <div class="stat-title">عقد تجاري</div>
+                    <div class="stat-desc">تم إعدادهم ومراجعتهم</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this right before the closing body tag -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/+201092499084?text=..." target="_blank">
+            <i class="fab fa-whatsapp"></i>
+
+        </a>
+    </div>
+
     <!-- Articles Section -->
     <section class="articles" id="articles">
-        <h2>أحدث المقالات</h2>
+        <h2 class="main-title">أحدث المقالات</h2>
         <div class="article-grid">
             <div class="article-item">
                 <img src="images\05.jpeg">
@@ -216,7 +250,7 @@
     <section class="faq-appointment" id="faq">
         <div class="container">
             <div class="faq-container">
-                <h2>أسئلة شائعة</h2>
+                <h2 class="main-title">أسئلة شائعة</h2>
                 <div class="faq-items">
                     <div class="faq-item">
                         <div class="faq-question">ما هي أنواع القضايا التي يقدم المكتب استشارات بشأنها؟ <span>+</span>
@@ -288,7 +322,7 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <h2>ماذا يقولون عنا</h2>
+            <h2 class="main-title">ماذا يقولون عنا</h2>
             <div class="testimonials-container">
                 <div class="testimonial-slide active">
                     <p>"الخدمة التي حصلت عليها من المكتب كانت ممتازة للغاية. فريق العمل متعاون ومحترف، واستجابوا لكل

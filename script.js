@@ -2,6 +2,53 @@ const menuToggle = document.getElementById('mobile-menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 const body = document.body;
 
+// Scroll animation observer
+const initScrollAnimations = () => {
+  // Select all elements you want to animate
+  const scrollElements = document.querySelectorAll(
+    '.hero-text, .hero-features, .about-us, .about-details, ' +
+    '.services, .service-item, .stats-section, .stat-item, ' +
+    '.articles, .article-item, .cta-section, .faq-appointment, ' +
+    '.testimonials, .why-choose-us, .feature-item, .law-firm-section'
+  );
+
+  // Add scroll-trigger class to all elements
+  scrollElements.forEach((el, index) => {
+    el.classList.add('scroll-trigger');
+    // Add delay classes to create staggered effect
+    if (index % 4 === 1) el.classList.add('delay-1');
+    if (index % 4 === 2) el.classList.add('delay-2');
+    if (index % 4 === 3) el.classList.add('delay-3');
+  });
+
+  // Create intersection observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Unobserve after animation to improve performance
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1, // Trigger when 10% of element is visible
+    rootMargin: '0px 0px -50px 0px' // Adjust trigger point
+  });
+
+  // Observe all scroll-trigger elements
+  scrollElements.forEach(el => {
+    observer.observe(el);
+  });
+};
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+// Add scroll progress animation
+window.addEventListener('scroll', () => {
+    document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+}, false);
+
 if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -73,7 +120,7 @@ const initLanguageSwitcher = () => {
     languageSwitcherButton.addEventListener('click', () => {
         const currentText = languageSwitcherButton.textContent;
         const nextLang = languages[currentText];
-        
+
         if (!nextLang) return;
 
         languageSwitcherButton.textContent = nextLang.text;
@@ -142,21 +189,47 @@ if (appointmentForm) {
 }
 
 // Add animation to elements when they come into view
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.service-item, .lawyer-item, .about-us h2, .services h2, .testimonials h2');
 
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
+// Counter Animation
+function animateCounters() {
+    const counters = document.querySelectorAll('.law-firm-stat h2');
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000;
+        const frameRate = 30;
+        const totalFrames = duration / (1000 / frameRate);
+        let frame = 0;
 
-        if (elementPosition < screenPosition) {
-            element.classList.add('fade-in');
-        }
+        const counterStep = () => {
+            frame++;
+            const progress = frame / totalFrames;
+            const current = Math.round(target * progress);
+            counter.innerText = progress < 1 ? current : target;
+            if (frame < totalFrames) {
+                requestAnimationFrame(counterStep);
+            }
+        };
+        counterStep();
     });
-};
+}
 
-window.addEventListener('scroll', animateOnScroll);
-document.addEventListener('DOMContentLoaded', animateOnScroll);
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+window.addEventListener('scroll', function onScroll() {
+    const section = document.getElementById('law-firm-section');
+    if (section && isInViewport(section)) {
+        animateCounters();
+        window.removeEventListener('scroll', onScroll);
+    }
+});
 
 // Article Category Filtering
 const initArticleFiltering = () => {
@@ -168,7 +241,7 @@ const initArticleFiltering = () => {
         const handleCategoryClick = (e) => {
             e.preventDefault();
             const category = e.currentTarget.getAttribute('data-category');
-            
+
             // Update article visibility
             articleItems.forEach(item => {
                 item.style.display = category === 'all' || item.classList.contains(category) ? 'block' : 'none';
@@ -236,3 +309,32 @@ const initArticleFiltering = () => {
         setInterval(rotateAboutImages, 5000);
     }
 };
+
+// Add this to your existing JavaScript
+function animateStatsCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 200;
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(animateStatsCounters, 1);
+        } else {
+            counter.innerText = target;
+        }
+    });
+}
+
+// Add this to your scroll event listener or where you handle scroll animations
+window.addEventListener('scroll', function () {
+    const statsSection = document.querySelector('.stats-section');
+    if (isInViewport(statsSection)) {
+        animateStatsCounters();
+        // Remove the event listener after animation runs once
+        window.removeEventListener('scroll', this);
+    }
+});

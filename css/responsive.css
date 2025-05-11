@@ -110,6 +110,7 @@
     font-size: 1.1rem;
   }
 
+  /* Mobile menu toggle */
   .mobile-menu-toggle {
     display: block;
     position: relative;
@@ -119,7 +120,9 @@
   .mobile-menu-toggle.active span {
     color: #fff;
   }
-
+.hide-on-large{
+  display: none;
+}
   /* Hero section */
   .hero {
     height: 450px;
@@ -302,4 +305,50 @@ body.menu-open {
 
 .nav-links.active {
   animation: slideIn 0.3s forwards;
+}
+
+@media screen and (max-width: 768px) {
+  .stats-section {
+    padding: 60px 5%;
+  }
+  
+  .stats-grid {
+    gap: 20px;
+  }
+  
+  .stat-item {
+    padding: 25px 15px;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .stat-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .stats-section {
+    padding: 50px 5%;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .whatsapp-float {
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  .whatsapp-float a {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+  }
+  
+  .whatsapp-float i {
+    font-size: 18px;
+  }
 }
