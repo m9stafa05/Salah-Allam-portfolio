@@ -216,46 +216,49 @@ if (appointmentForm) {
 
 // Add animation to elements when they come into view
 
-// Counter Animation
+document.addEventListener('DOMContentLoaded', function() {
+    // Start counter animation immediately
+    animateCounters();
+    
+    // Keep all your other initialization code
+});
+
 function animateCounters() {
-    const counters = document.querySelectorAll('.law-firm-stat h2');
+    const counters = document.querySelectorAll('.stat-number');
+    const animationDuration = 2000; // 2 seconds
+    const frameDuration = 1000 / 60; // 60fps
+    const totalFrames = Math.round(animationDuration / frameDuration);
+    
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
-        const duration = 2000;
-        const frameRate = 30;
-        const totalFrames = duration / (1000 / frameRate);
         let frame = 0;
-
-        const counterStep = () => {
+        
+        const countTo = () => {
             frame++;
             const progress = frame / totalFrames;
-            const current = Math.round(target * progress);
-            counter.innerText = progress < 1 ? current : target;
+            const currentValue = Math.round(target * progress);
+            
+            if (target % 1 !== 0) {
+                counter.innerText = (target * progress).toFixed(1);
+            } else {
+                counter.innerText = currentValue;
+            }
+            
             if (frame < totalFrames) {
-                requestAnimationFrame(counterStep);
+                requestAnimationFrame(countTo);
+            } else {
+                // Ensure final value is exact
+                if (target % 1 !== 0) {
+                    counter.innerText = target.toFixed(1);
+                } else {
+                    counter.innerText = target;
+                }
             }
         };
-        counterStep();
+        
+        countTo();
     });
 }
-
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-window.addEventListener('scroll', function onScroll() {
-    const section = document.getElementById('law-firm-section');
-    if (section && isInViewport(section)) {
-        animateCounters();
-        window.removeEventListener('scroll', onScroll);
-    }
-});
 
 // Article Category Filtering
 const initArticleFiltering = () => {
