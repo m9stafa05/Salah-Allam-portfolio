@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>صلاح علام للمحاماة - شركة محاماه مصرية عربية ودولية للإستشارات القانونية</title>
-    <link rel="stylesheet" href='css/style.css'>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="css/stat.css">
+    <link rel="stylesheet" href="css/alert.css">
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
@@ -34,8 +35,7 @@
                     <li><a href="#articles">مقالات</a></li>
                     <li><a href="#cta">استشارات</a></li>
                     <li><a href="#appointment">تواصل معنا</a></li>
-                    <li class="hide-on-large"><a href="https://wa.me/+201092499084?text=..." class="cta-button"><i
-                                class="fas fa-phone"></i></a></li>
+                 
                 </ul>
                 <div class="logo">
                     <a href="index.html"><img src="images/logo.png" alt="صلاح علام للمحاماة"></a>
@@ -302,21 +302,27 @@
                     <p>سعداء بالتواصل معكم، فريقنا المؤهل جاهز للمساعدة، يرجى ملء هذا النموذج وسوف نتصل بك قريبا.</p>
                     <form id="appointment-form">
                         <div class="form-group">
-                            <input type="text" placeholder="الاسم" required>
+                            <input type="text" placeholder="الاسم" required id="name">
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="رقم الهاتف" required>
+                            <input type="tel" placeholder="رقم الهاتف" required id="phone">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="البريد الإلكتروني" required>
+                            <input type="email" placeholder="البريد الإلكتروني" id="email">
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="الموضوع" required>
+                            <input type="text" placeholder="الموضوع" required id="subject">
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="التفاصيل" required></textarea>
+                            <textarea placeholder="التفاصيل" required id="details"></textarea>
                         </div>
                         <button type="submit" class="submit-btn">حجز موعد</button>
+    <div class="alert-overlay"></div>
+    <div class="custom-alert">
+        <h3>تم إرسال طلبك بنجاح</h3>
+        <p>تم فتح نافذة WhatsApp تلقائياً يمكنك الآن التواصل مباشرة مع مكتب المحاماة.</p>
+        <button onclick="closeAlert()">حسناً</button>
+    </div>
                     </form>
                 </div>
             </div>
@@ -413,6 +419,7 @@
 
     <script src="script.js"></script>
     <script src="responsive.js"></script>
+    <script src="js/appointment.js"></script>
 </body>
 
 </html>

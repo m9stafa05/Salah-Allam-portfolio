@@ -206,10 +206,10 @@ if (appointmentForm) {
 
         if (isValid) {
             // Show success message
-            alert('تم إرسال طلب الاستشارة بنجاح. سنتواصل معك قريبًا.');
+            showAlert();
             this.reset();
         } else {
-            alert('يرجى ملء جميع الحقول المطلوبة.');
+            showAlert();
         }
     });
 }

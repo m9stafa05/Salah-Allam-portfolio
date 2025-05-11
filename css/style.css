@@ -1303,19 +1303,34 @@ footer {
 
 .service-grid {
   display: grid;
+  justify-content: center;
   gap: 2rem;
   padding: 2rem;
 }
 
-/* 3 items per row for screens 700px and up */
-@media screen and (min-width: 700px) {
+/* Large screens - 5 items per row */
+@media screen and (min-width: 1600px) {
+  .service-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Medium screens - 4 items per row */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  .service-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Small screens - 3 items per row */
+@media screen and (min-width: 767px) and (max-width: 1199px) {
   .service-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* Mobile - 2 items per row */
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 767px) {
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
