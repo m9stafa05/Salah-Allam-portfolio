@@ -1303,9 +1303,22 @@ footer {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* 3 items per row for screens 700px and up */
+@media screen and (min-width: 700px) {
+  .service-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile - 2 items per row */
+@media screen and (max-width: 699px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .service-item {
