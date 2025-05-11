@@ -1319,7 +1319,7 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  animation: rotate 6s linear infinite;
+  animation: rotate 20s linear infinite;
 }
 
 @keyframes rotate {
@@ -1327,13 +1327,13 @@ footer {
     transform: rotate(0deg);
   }
   40% {
-    transform: rotate( 15deg);
+    transform: rotate( 5deg);
   }
   60% {
-    transform: rotate(-15deg);
+    transform: rotate(-5deg);
   }
   80% {
-    transform: rotate(15deg);
+    transform: rotate(5deg);
   }
   100% {
     transform: rotate(0deg);
