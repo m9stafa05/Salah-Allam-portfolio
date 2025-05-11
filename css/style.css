@@ -51,7 +51,6 @@ ul {
   }
   100% {
     border: 2px solid var(--secondary-color);
-
   }
 }
 
@@ -401,7 +400,7 @@ nav ul li a.active {
   0% {
     transform: translateY(0);
     opacity: 0;
-    }
+  }
   40% {
     transform: translateY(-100%);
     opacity: 2;
@@ -413,7 +412,6 @@ nav ul li a.active {
   100% {
     transform: translateY(-200%);
     opacity: 0;
-
   }
 }
 
@@ -450,7 +448,7 @@ nav ul li a.active {
   justify-content: right;
 }
 @media screen and (max-width: 768px) {
- .hero-content {
+  .hero-content {
     padding: 0 30px;
   }
 }
@@ -551,7 +549,6 @@ nav ul li a.active {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: All 0.3s ease-in-out;
 }
-
 
 .about-us-image:hover {
   transform: rotate(-5deg);
@@ -1319,24 +1316,24 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  animation: rotate 20s linear infinite;
+  animation: scale 20s linear infinite;
 }
 
-@keyframes rotate {
+@keyframes scale {
   0% {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
   40% {
-    transform: rotate( 5deg);
+    transform: scale(1.05);
   }
   60% {
-    transform: rotate(-5deg);
+    transform: scale(1);
   }
   80% {
-    transform: rotate(5deg);
+    transform: scale(1.05);
   }
   100% {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
 }
 
