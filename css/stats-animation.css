@@ -1,0 +1,23 @@
+/* Stats number animation */
+.stat-number {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease-out;
+}
+
+/* Up-down bounce animation */
+@keyframes upDownBounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.stat-number.bounce {
+    animation: upDownBounce 1.5s ease-in-out infinite;
+}
+
+/* Add staggered animation for different numbers */
+.stat-number:nth-child(1) { animation-delay: 0s; }
+.stat-number:nth-child(2) { animation-delay: 0.2s; }
+.stat-number:nth-child(3) { animation-delay: 0.4s; }
+.stat-number:nth-child(4) { animation-delay: 0.6s; }

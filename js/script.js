@@ -216,49 +216,57 @@ if (appointmentForm) {
 
 // Add animation to elements when they come into view
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Start counter animation immediately
-    animateCounters();
-    
-    // Keep all your other initialization code
-});
-
+// Counter Animation
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
-    const animationDuration = 2000; // 2 seconds
-    const frameDuration = 1000 / 60; // 60fps
-    const totalFrames = Math.round(animationDuration / frameDuration);
     
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
-        let frame = 0;
+        counter.innerText = target;
         
-        const countTo = () => {
-            frame++;
-            const progress = frame / totalFrames;
-            const currentValue = Math.round(target * progress);
-            
-            if (target % 1 !== 0) {
-                counter.innerText = (target * progress).toFixed(1);
-            } else {
-                counter.innerText = currentValue;
-            }
-            
-            if (frame < totalFrames) {
-                requestAnimationFrame(countTo);
-            } else {
-                // Ensure final value is exact
-                if (target % 1 !== 0) {
-                    counter.innerText = target.toFixed(1);
-                } else {
-                    counter.innerText = target;
-                }
-            }
-        };
-        
-        countTo();
+        // Add up-down bounce animation
+        counter.classList.add('bounce');
     });
+
+    // Add animation to elements when they come into view
+    const statsSection = document.querySelector('.stats-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
 }
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Initialize counters on page load
+window.addEventListener('load', animateCounters);
+
+// Also animate counters when stats section comes into view
+window.addEventListener('scroll', function onScroll() {
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection && isInViewport(statsSection)) {
+        animateCounters();
+        window.removeEventListener('scroll', onScroll);
+    }
+}, false);
 
 // Article Category Filtering
 const initArticleFiltering = () => {
