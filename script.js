@@ -4,45 +4,71 @@ const body = document.body;
 
 // Scroll animation observer
 const initScrollAnimations = () => {
-  // Select all elements you want to animate
-  const scrollElements = document.querySelectorAll(
-    '.hero-text, .hero-features, .about-us, .about-details, ' +
-    '.services, .service-item, .stats-section, .stat-item, ' +
-    '.articles, .article-item, .cta-section, .faq-appointment, ' +
-    '.testimonials, .why-choose-us, .feature-item, .law-firm-section'
-  );
+    // Select all elements you want to animate
+    const scrollElements = document.querySelectorAll(
+        '.hero-text, .hero-features, .about-us, .about-details, ' +
+        '.services, .service-item, .stats-section, .stat-item, ' +
+        '.articles, .article-item, .cta-section, .faq-appointment, ' +
+        '.testimonials, .why-choose-us, .feature-item, .law-firm-section'
+    );
 
-  // Add scroll-trigger class to all elements
-  scrollElements.forEach((el, index) => {
-    el.classList.add('scroll-trigger');
-    // Add delay classes to create staggered effect
-    if (index % 4 === 1) el.classList.add('delay-1');
-    if (index % 4 === 2) el.classList.add('delay-2');
-    if (index % 4 === 3) el.classList.add('delay-3');
-  });
-
-  // Create intersection observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Unobserve after animation to improve performance
-        observer.unobserve(entry.target);
-      }
+    // Add scroll-trigger class to all elements
+    scrollElements.forEach((el, index) => {
+        el.classList.add('scroll-trigger');
+        // Add delay classes to create staggered effect
+        if (index % 4 === 1) el.classList.add('delay-1');
+        if (index % 4 === 2) el.classList.add('delay-2');
+        if (index % 4 === 3) el.classList.add('delay-3');
     });
-  }, {
-    threshold: 0.1, // Trigger when 10% of element is visible
-    rootMargin: '0px 0px -50px 0px' // Adjust trigger point
-  });
 
-  // Observe all scroll-trigger elements
-  scrollElements.forEach(el => {
-    observer.observe(el);
-  });
+    // Create intersection observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Unobserve after animation to improve performance
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1, // Trigger when 10% of element is visible
+        rootMargin: '0px 0px -50px 0px' // Adjust trigger point
+    });
+
+    // Observe all scroll-trigger elements
+    scrollElements.forEach(el => {
+        observer.observe(el);
+    });
 };
 
+// Service Scroller function
+function initServiceScroller() {
+    const serviceRow = document.querySelector('.service-row');
+    const grid = serviceRow.querySelector('.service-grid');
+
+    // Duplicate items for seamless looping
+    const items = grid.querySelectorAll('.service-item');
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        grid.appendChild(clone);
+    });
+
+    // Add event listener to handle looping
+    grid.addEventListener('animationiteration', () => {
+        // Move first item to the end
+        const firstItem = grid.querySelector('.service-item:first-child');
+        grid.appendChild(firstItem);
+
+        // Reset transform
+        grid.style.transform = 'translateX(0)';
+    });
+}
+
 // Initialize on DOM load
-document.addEventListener('DOMContentLoaded', initScrollAnimations);
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollAnimations();
+    initServiceScroller();
+});
 
 // Add scroll progress animation
 window.addEventListener('scroll', () => {

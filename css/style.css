@@ -5,7 +5,7 @@
 }
 :root {
   --primary-color: #039d9d;
-  --secondary-color: #003366;
+  --secondary-color: #004d9a;
   --main-transition: 0.3s;
 }
 body {
@@ -26,7 +26,6 @@ ul {
 }
 .main-title {
   margin: 50px auto;
-  border: 2px solid var(--secondary-color);
   border-radius: 6px;
   font-size: 30px;
   width: fit-content;
@@ -34,48 +33,87 @@ ul {
   text-transform: uppercase;
   position: relative;
   z-index: 1;
-  transition: var(--main-transition);
-  -webkit-transition: var(--main-transition);
-  -moz-transition: var(--main-transition);
-  -o-transition: var(--main-transition);
-  -ms-transition: var(--main-transition);
+  animation: title-change 3s infinite;
+  -webkit-animation: title-change 3s infinite;
 }
-.main-title::before {
-  content: "";
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  background-color: var(--secondary-color);
-  border-radius: 50%;
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
+@keyframes title-change {
+  0% {
+    border: 2px solid var(--secondary-color);
+  }
+  40% {
+    border: 2px solid var(--primary-color);
+  }
+  60% {
+    border: 2px solid var(--secondary-color);
+  }
+  80% {
+    border: 2px solid var(--primary-color);
+  }
+  100% {
+    border: 2px solid var(--secondary-color);
+
+  }
 }
-.main-title::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background-color: var(--secondary-color);
-  border-radius: 50%;
-  right: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-}
+
 .main-title:hover {
+  animation: none;
   color: white;
   border: 2px solid white;
   border-radius: 6px;
   transition-delay: 0.5s;
 }
+
+.main-title::before,
+.main-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  animation: circle-move 2s infinite;
+}
+
+.main-title::before {
+  width: 13px;
+  height: 13px;
+  left: -30px;
+}
+
+.main-title::after {
+  width: 12px;
+  height: 12px;
+  right: -30px;
+  animation-delay: 0.5s;
+}
+
+@keyframes circle-move {
+  0% {
+    transform: translateY(-50%) translateX(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-50%) translateX(50%);
+    transform: scale(3);
+  }
+  60% {
+    transform: translateY(-50%) translateX(50%);
+
+    transform: scale(3);
+  }
+  80% {
+    transform: translateY(-50%) translateX(50%);
+
+    transform: scale(3);
+  }
+  100% {
+    transform: translateY(-50%) translateX(0);
+
+    transform: scale(1);
+  }
+}
+
 .main-title:hover::before {
   z-index: -1;
   animation: left-move 0.5s linear forwards;
@@ -329,7 +367,8 @@ nav ul li a.active {
 }
 
 .hero-content {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   font-family: "Tajawal";
   padding: 0 50px;
   position: relative;
@@ -341,7 +380,7 @@ nav ul li a.active {
 }
 
 .hero-text {
-  max-width: 400px;
+  max-width: 600px;
   text-align: right;
   margin-right: 50px;
 }
@@ -349,23 +388,47 @@ nav ul li a.active {
 .hero-text::before {
   content: "";
   position: absolute;
-  top: 0;
-  right: -20px;
-  height: 100%;
+  border-radius: 5px;
+  top: 50%;
+  right: 120px;
+  height: 50px;
   width: 5px;
   background-color: var(--primary-color);
+  animation: scrollAnimation 1s linear infinite;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+    }
+  40% {
+    transform: translateY(-100%);
+    opacity: 2;
+  }
+  60% {
+    transform: translateY(-150%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200%);
+    opacity: 0;
+
+  }
 }
 
 .hero .subtitle {
   font-size: 1.2rem;
   margin-bottom: 15px;
+  margin-right: 20px;
   color: var(--primary-color);
-  font-weight: 400;
+  font-weight: bold;
 }
 
 /* Hero Title Scroll Animation */
 
 .hero-title-container {
+  width: 100%;
   height: 200px;
   overflow: hidden;
   position: relative;
@@ -376,10 +439,25 @@ nav ul li a.active {
   color: #ffffff;
 }
 
+.scroll-wrapper span {
+  height: 50px; /* same as container height */
+  line-height: 1.3;
+  /* font-size: 20px; */
+  font-weight: bold;
+  text-align: right;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+@media screen and (max-width: 768px) {
+ .hero-content {
+    padding: 0 30px;
+  }
+}
+
 .scroll-wrapper {
   display: flex;
   flex-direction: column;
-  /* animation: scrollText 10s linear infinite; */
 }
 
 @keyframes scrollText {
@@ -389,17 +467,6 @@ nav ul li a.active {
   100% {
     transform: translateY(-130%);
   }
-}
-
-.scroll-wrapper span {
-  height: 50px; /* same as container height */
-  line-height: 1.3;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: right;
-  display: flex;
-  align-items: right;
-  justify-content: right;
 }
 
 .cta-button-main {
@@ -485,17 +552,7 @@ nav ul li a.active {
   transition: All 0.3s ease-in-out;
 }
 
-@keyframes moveUpDown {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
+
 .about-us-image:hover {
   transform: rotate(-5deg);
   transform: translateY(-5px);
@@ -507,7 +564,7 @@ nav ul li a.active {
 }
 
 .cta-button-secondary {
-  background-color: #003366;
+  background-color: var(--primary-color);
   color: #fff;
   padding: 12px 25px;
   border-radius: 5px;
@@ -518,7 +575,7 @@ nav ul li a.active {
 }
 
 .cta-button-secondary:hover {
-  background-color: #002244;
+  background-color: var(--secondary-color);
 }
 /* About Image Slider Styles */
 .about-image-slider {
@@ -558,6 +615,19 @@ nav ul li a.active {
 .fade-out {
   animation: fadeOut 0.8s ease-out forwards;
 }
+
+/* Services Section */
+.services {
+  padding: 20px 5%;
+  text-align: center;
+  background-color: #f5f7fa;
+}
+
+.services h2 {
+  font-size: 2em;
+  color: var(--secondary-color);
+}
+
 /* Services Section */
 .services {
   padding: 20px 5%;
@@ -581,14 +651,38 @@ nav ul li a.active {
   margin: 0 auto 30px auto;
 }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px;
+/* Services Container */
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   margin: 40px 0;
+  overflow: hidden;
 }
 
+/* Service Row */
+.service-row {
+  overflow: hidden;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.service-grid {
+  display: flex;
+  gap: 25px;
+  padding: 10px;
+  will-change: transform;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Pause animation on hover */
+.service-row:hover .service-grid {
+  transition-duration: 0.3s;
+}
+
+/* Service Item */
 .service-item {
+  flex: 0 0 250px;
   background-color: #fff;
   border-radius: 8px;
   padding: 30px 20px;
@@ -606,6 +700,11 @@ nav ul li a.active {
   font-size: 2.5em;
   color: var(--secondary-color);
   margin-bottom: 15px;
+  transition: color 0.3s;
+}
+
+.service-item:hover i {
+  color: var(--primary-color);
 }
 
 .service-item h4 {
@@ -1148,6 +1247,28 @@ footer {
   padding: 0 15px;
 }
 
+/* Grid display for hero text */
+.hero-title-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.hero-title-container span {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.hero-title-container span:hover {
+  transform: translateY(-5px);
+}
+
 /* Add these new animations to your CSS */
 @keyframes fadeInUp {
   from {
@@ -1160,32 +1281,6 @@ footer {
   }
 }
 
-/* Add this class for scroll-triggered elements */
-.scroll-trigger {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.scroll-trigger.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Add delay classes for staggered animations */
-.scroll-trigger.delay-1 {
-  transition-delay: 0.1s;
-}
-.scroll-trigger.delay-2 {
-  transition-delay: 0.2s;
-}
-.scroll-trigger.delay-3 {
-  transition-delay: 0.3s;
-}
-.scroll-trigger.delay-4 {
-  transition-delay: 0.4s;
-}
-
 /* Hero section - always visible */
 .hero-content {
   opacity: 1 !important;
@@ -1195,4 +1290,57 @@ footer {
 .hero-features {
   opacity: 1 !important;
   transform: none !important;
+}
+
+/* Services Section - Horizontal Scroll */
+.services-container {
+  width: 100%;
+  overflow: hidden;
+  margin: 40px 0;
+}
+
+.service-row {
+  display: flex;
+  width: 100%;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.service-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate( 15deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  80% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.service-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }

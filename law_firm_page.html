@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شركة قانونية</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      direction: rtl;
+      background: #3f6254;
+      color: white;
+    }
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .facts {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      background-image: url('background-facts.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .facts::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(63, 98, 84, 0.95);
+      z-index: 1;
+    }
+    .facts > * {
+      position: relative;
+      z-index: 2;
+    }
+    .fact {
+      margin: 20px;
+      min-width: 150px;
+    }
+    .fact h2 {
+      font-size: 2.5em;
+      color: #f0b42c;
+      margin: 0;
+    }
+    .fact p {
+      font-size: 1.1em;
+      margin-top: 10px;
+      color: white;
+    }
+    .clients, .testimonials, .news, .contact {
+      background: white;
+      color: black;
+    }
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding-top: 20px;
+    }
+    .logo {
+      width: 120px;
+      height: 60px;
+      background: #ccc;
+    }
+    .news-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .card {
+      width: 300px;
+      margin: 20px;
+      border: 1px solid #ddd;
+      padding: 15px;
+      background: #f9f9f9;
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .footer {
+      background: #2d4a3e;
+      padding: 20px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="section facts" id="facts-section">
+    <div class="fact">
+      <h2 data-target="7">0</h2>
+      <p>عدد الأقسام القانونية بالشركة ويعمل بها أكثر من 30 موظف</p>
+    </div>
+    <div class="fact">
+      <h2 data-target="30000">0</h2>
+      <p>أكثر من معاملة قانونية خلال مسيرة العمل منذ عام 1996</p>
+    </div>
+    <div class="fact">
+      <h2 data-target="82.7">0</h2>
+      <p>% نسبة إنجاز الأعمال لصالح عملائنا</p>
+    </div>
+    <div class="fact">
+      <h2 data-target="16589">0</h2>
+      <p>عقد لشركات تجارية تم إعدادهم ومراجعتهم</p>
+    </div>
+  </div>
+
+  <div class="section clients">
+    <h2>عملاؤنا</h2>
+    <div class="logos">
+      <div class="logo"></div>
+      <div class="logo"></div>
+      <div class="logo"></div>
+      <div class="logo"></div>
+      <div class="logo"></div>
+    </div>
+  </div>
+
+  <div class="section testimonials">
+    <h2 style="color: #c88b0c; font-weight: bold; font-size: 1.6em;">ما يقوله عملاؤنا</h2>
+    <p style="max-width: 700px; margin: 10px auto; font-size: 1.1em; color: #444;">
+      والله إني أحبكم وأحب كل موظفي المكتب، وكلكم غير مقصرين في العمل.
+    </p>
+    <p style="font-weight: bold; color: #555;">منــاحي الدوسري</p>
+  </div>
+
+  <div class="section news">
+    <h2 style="color: #c88b0c; font-weight: bold; font-size: 1.6em;">آخر الأخبار</h2>
+    <div class="news-cards">
+      <div class="card">
+        <img src="news1.jpg" alt="صورة خبر">
+        <h3 style="color: #0a3e2f; font-size: 1.1em;">تعرف على أهم بنود صيغ العقود في السعودية</h3>
+        <p style="color: #666">صياغة العقود بشكل قانوني محكم، هي الضامن لحفظ حقوق أطراف العقد وتعتبر أمرًا في غاية الأهمية، ويسعى أرباب الأعمال والكيانات التجارية.</p>
+      </div>
+      <div class="card">
+        <img src="news2.jpg" alt="صورة خبر">
+        <h3 style="color: #0a3e2f; font-size: 1.1em;">كيف تساهم مكاتب خدمات المحاماة في تحقيق رؤية المملكة العربية السعودية 2030</h3>
+        <p style="color: #666">تعتبر العدالة ركيزة أساسية في كل الخطط الرامية لبناء حضارة إنسانية ترتقي بالإنسان والمكان من خلال خدمات المحاماة.</p>
+      </div>
+      <div class="card">
+        <img src="news3.jpg" alt="صورة خبر">
+        <h3 style="color: #0a3e2f; font-size: 1.1em;">تعرف على أهم 8 فقرات عند صياغة عقود خدمات المحاماة والاستشارات القانونية</h3>
+        <p style="color: #666">تختص مكاتب المحاماة في كتابة وصياغة العقود والاتفاقيات بين مختلف الأطراف وفي مختلف العقود المبرمة.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section contact" style="display: flex; flex-wrap: wrap; background: white; color: black; padding: 0;">
+    <div style="flex: 1; min-width: 300px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.5002853429456!2d46.71205477537296!3d24.687315878033704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f038c508d431d%3A0x9e01a455902336df!2sASSESSSEUR%20LAW%20FIRM%20L%20L%20P!5e0!3m2!1sar!2seg!4v1715344287172!5m2!1sar!2seg" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="flex: 1; min-width: 300px; background: #d6a103; color: white; padding: 20px;">
+      <h2>تواصل معنا</h2>
+      <p>شركة اسيسيور للمحاماة والاستشارات القانونية</p>
+      <p>شركة ذات مسؤولية محدودة مهنية</p>
+      <p>رقم الترخيص: 1010719335</p>
+      <p>رأس المال: 500000 ريال</p>
+      <p>3399 الامير فيصل بن تركي بن عبد العزيز - الرياض</p>
+      <p>ص.ب: 66862 الرمز البريدي: 11586</p>
+      <p>الهاتف: 920002006</p>
+      <p>الاستشارات: 0505218482</p>
+      <p>البريد الإلكتروني: Info@assesseur.com</p>
+      <p>ساعات العمل: من الأحد - الخميس</p>
+      <p>7:30AM - 5:00PM</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© جميع الحقوق محفوظة 2025</p>
+  </div>
+
+  <script>
+    function animateCounters() {
+      const counters = document.querySelectorAll('.fact h2');
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000;
+        const frameRate = 30;
+        const totalFrames = duration / (1000 / frameRate);
+        let frame = 0;
+
+        const counterStep = () => {
+          frame++;
+          const progress = frame / totalFrames;
+          const current = Math.round(target * progress);
+          counter.innerText = progress < 1 ? current : target;
+          if (frame < totalFrames) {
+            requestAnimationFrame(counterStep);
+          }
+        };
+
+        counterStep();
+      });
+    }
+
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    window.addEventListener('scroll', function onScroll() {
+      const section = document.getElementById('facts-section');
+      if (isInViewport(section)) {
+        animateCounters();
+        window.removeEventListener('scroll', onScroll);
+      }
+    });
+  </script>
+</body>
+</html>

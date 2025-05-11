@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+  <div class="slider-wrapper">
+    <div class="slider">
+      <div class="card">Card 1</div>
+      <div class="card">Card 2</div>
+      <div class="card">Card 3</div>
+      <div class="card">Card 4</div>
+
+      <!-- Duplicate cards for seamless looping -->
+      <div class="card">Card 1</div>
+      <div class="card">Card 2</div>
+      <div class="card">Card 3</div>
+      <div class="card">Card 4</div>
+    </div>
+
+    <script>
+      // Initialize slider
+      const slider = document.querySelector('.slider');
+      const cards = slider.querySelectorAll('.card');
+
+      // Duplicate cards for seamless looping
+      cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        slider.appendChild(clone);
+      });
+
+      // Handle animation iteration
+      slider.addEventListener('animationiteration', () => {
+        // Move first card to the end
+        const firstCard = slider.querySelector('.card:first-child');
+        slider.appendChild(firstCard);
+
+        // Reset transform
+        slider.style.transform = 'translateX(0)';
+      });
+    </script>
+</body>
+
+</html>
