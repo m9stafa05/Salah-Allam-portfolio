@@ -70,7 +70,7 @@ ul {
   transform: translateY(-50%);
   background-color: var(--secondary-color);
   border-radius: 50%;
-  animation: circle-move 2s infinite;
+  /* animation: circle-move 2s infinite; */
 }
 
 .main-title::before {
@@ -83,7 +83,7 @@ ul {
   width: 12px;
   height: 12px;
   right: -30px;
-  animation-delay: 0.5s;
+  /* animation-delay: 0.5s; */
 }
 
 @keyframes circle-move {
@@ -1173,6 +1173,7 @@ footer {
 
 .footer-contact .social-icons a:hover {
   transform: scale(1.2);
+  color:#25D366;
 }
 
 /* Responsive Footer */
@@ -1344,25 +1345,25 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  animation: scale 20s linear infinite;
+  animation: scale 1.5s linear infinite;
 }
-
 @keyframes scale {
   0% {
-    transform: scale(1);
+    transform: translateY(0);
   }
   40% {
-    transform: scale(1.05);
+    transform: translateY(-5px);
   }
   60% {
-    transform: scale(1);
+    transform: translateY(0);
   }
   80% {
-    transform: scale(1.05);
+    transform: translateY(5px);
   }
   100% {
-    transform: scale(1);
+    transform: translateY(0);
   }
+
 }
 
 .service-item:hover {
