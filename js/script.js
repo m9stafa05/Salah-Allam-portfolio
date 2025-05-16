@@ -219,11 +219,11 @@ if (appointmentForm) {
 // Counter Animation
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
-    
+
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
         counter.innerText = target;
-        
+
         // Add up-down bounce animation
         counter.classList.add('bounce');
     });
